@@ -1,4 +1,5 @@
-sude: required
+sudo: required
+#language: generic
 services:
   - docker
 before_install:
