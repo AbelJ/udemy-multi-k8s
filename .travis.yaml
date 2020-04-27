@@ -1,0 +1,18 @@
+sude: required
+services:
+    - docker
+before_install:
+    #- openssl aes-256-cbc -K $encrypted_xxxxx
+    - curl https://sdk.cloud.google.com | bash > /dev/null;
+    - source $HOME/google-cloud-sdk/path.bash.inc
+    - gcloud components update kubectl
+    #- gcloud auth activate-service-account --key-file service-account.json
+    #- gcloud config set project xxxxxID
+    #- gcloud config set compute/zone us-central1-a
+    #- gcloud container clusters get-credentials multi-cluster 
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker build -t abeljm/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+    - docker run -e CI=true abeljm/react-test npm run test
+
