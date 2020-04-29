@@ -11,7 +11,7 @@ docker push abeljm/udemy-multi-server:$SHA
 docker push abeljm/udemy-multi-worker:latest
 docker push abeljm/udemy-multi-worker:$SHA
 
-kubectl apply -f k8s
-kubectl set image deployments/server-deployment server=abeljm/udemy-multi-server:$SHA
-kubectl set image deployments/client-deployment client=abeljm/udemy-multi-client:$SHA
-kubectl set image deployments/worker-deployment worker=abeljm/udemy-multi-worker:$SHA
+#kubectl apply -f k8s
+#kubectl set image deployments/server-deployment server=abeljm/udemy-multi-server:$SHA
+#kubectl set image deployments/client-deployment client=abeljm/udemy-multi-client:$SHA
+#kubectl set image deployments/worker-deployment worker=abeljm/udemy-multi-worker:$SHA
